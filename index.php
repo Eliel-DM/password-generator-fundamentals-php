@@ -2,5 +2,5 @@
 // HEADERS 
 include __DIR__ . '/password.php';
 
-$password = passowordGenerator(true, true, true, true);
+$password = passowordGenerator(12, true, true, true, true);
 echo $password;
