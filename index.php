@@ -23,33 +23,33 @@ while ($validadorDeEntrada != 5) {
 
             echo "Letras Maiúsculas ?";
             $letrasMaiusculas = fgets(STDIN);
-            if (strtoupper(trim($letrasMaiusculas)) == "S") {
+            if (strtoupper($letrasMaiusculas) == "S") {
                 $hasUpperStrings = true;
             }
 
             echo "Letras Minúsculas ?";
-            $letrasMinusculas = fgets(STDIN);
-            if (strtoupper(trim($letrasMinusculas)) == "S") {
+            $letrasMinusculas = trim(fgets(STDIN));
+            if (strtoupper($letrasMinusculas) == "S") {
                 $hasLowerStrings = true;
             }
 
             echo "Números ? ";
-            $numeros = fgets(STDIN);
-            if (strtoupper(trim($numeros)) == "S") {
+            $numeros = trim(fgets(STDIN));
+            if (strtoupper($numeros) == "S") {
                 $hasNumeric = true;
             }
 
             echo "Caracteres Especiais ?";
-            $caracteresEspeciais = fgets(STDIN);
-            if (strtoupper(trim($caracteresEspeciais)) == "S") {
+            $caracteresEspeciais = trim(fgets(STDIN));
+            if (strtoupper($caracteresEspeciais) == "S") {
                 $hasSpecialStrings = true;
             }
 
             echo "Qual o tamanho da senha desejada ?";
-            $sizePassword = (int)fgets(STDIN);
+            $sizePassword = (int) trim(fgets(STDIN));
 
-            $password = passowordGenerator(trim($sizePassword), $hasNumeric, $hasLowerStrings, $hasUpperStrings, $hasSpecialStrings);
-
+            $password = passowordGenerator($sizePassword, $hasNumeric, $hasLowerStrings, $hasUpperStrings, $hasSpecialStrings);
+            echo $password . "\n";
             sleep(3);
             break;
         case 5:
