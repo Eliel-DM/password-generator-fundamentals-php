@@ -4,5 +4,5 @@
 
 include __DIR__ . "/password.php";
 
-$counter = checkCaractere("oi21");
+$counter = passwordValidator("oA1i1231aa12312312aa");
 echo $counter;

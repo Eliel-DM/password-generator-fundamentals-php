@@ -34,11 +34,17 @@ function passowordGenerator(int $passwordSize, bool $includeNumeric, bool $inclu
 
 
 function passwordValidator(string $password): string {
+    $qualityPassoword = checkCaractere($password);
     $sizePassword = strlen($password);
 
-    return "12312";
+    if ($sizePassword >= 14 && $qualityPassoword >= 3) {
+        return "A senha informada é uma senha de forte";
+    } elseif (($sizePassword >= 8 && $sizePassword < 13) && $qualityPassoword >= 3) {
+        return "A senha informada é uma senha  média!";
+    } else {
+        return "A senha informada é uma senha Fraca!";
+    }
 }
-
 /*
     ---------------------Função para validar quais tipos de caracteres presentes na senha---------------------
     Não sei se foi a melhor maneira de implementar, mas foi a forma que veio na mente, validar depois.
@@ -49,15 +55,41 @@ function checkCaractere(string $password): int {
     $countCaractereClass = 0;
 
     // Convertendo as Strings em Arrays para validar caractere por caractere.
-
     $passwordArray = str_split($password);
     $stringContentNumericArray = str_split($stringContentNumeric);
     $stringContentLowerCaseStringsArray = str_split($stringContentLowerCaseStrings);
-
+    $stringContentUpperCaseStringsArray = str_split($stringContentUpperCaseStrings);
+    $stringContentSpecialCharactersArray = str_split($stringContentSpecialCharacters);
 
     foreach ($passwordArray as $letraOfPassoword) {
         foreach ($stringContentNumericArray as $caractereNumeric) {
             if ($letraOfPassoword == $caractereNumeric) {
+                $countCaractereClass += 1;
+                break 2;
+            }
+        }
+    }
+
+    foreach ($passwordArray as $letraOfPassoword) {
+        foreach ($stringContentLowerCaseStringsArray as $caractereLower) {
+            if ($letraOfPassoword == $caractereLower) {
+                $countCaractereClass += 1;
+                break 2;
+            }
+        }
+    }
+
+    foreach ($passwordArray as $letraOfPassoword) {
+        foreach ($stringContentUpperCaseStringsArray as $caractereUpper) {
+            if ($letraOfPassoword == $caractereUpper) {
+                $countCaractereClass += 1;
+                break 2;
+            }
+        }
+    }
+    foreach ($passwordArray as $letraOfPassoword) {
+        foreach ($stringContentSpecialCharactersArray as $caractereSpecial) {
+            if ($letraOfPassoword == $caractereSpecial) {
                 $countCaractereClass += 1;
                 break 2;
             }
