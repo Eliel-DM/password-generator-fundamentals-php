@@ -39,20 +39,27 @@ function passwordValidator(string $password): string {
     return "12312";
 }
 
-// Função para validar se a senha tem os  caracteres desejáveis 
+/*
+    ---------------------Função para validar quais tipos de caracteres presentes na senha---------------------
+    Não sei se foi a melhor maneira de implementar, mas foi a forma que veio na mente, validar depois.
+*/
 function checkCaractere(string $password): int {
     global $stringContentNumeric, $stringContentLowerCaseStrings, $stringContentUpperCaseStrings, $stringContentSpecialCharacters;
+
     $countCaractereClass = 0;
+
+    // Convertendo as Strings em Arrays para validar caractere por caractere.
+
     $passwordArray = str_split($password);
+    $stringContentNumericArray = str_split($stringContentNumeric);
+    $stringContentLowerCaseStringsArray = str_split($stringContentLowerCaseStrings);
+
 
     foreach ($passwordArray as $letraOfPassoword) {
-        $stringContentNumericArray = str_split($stringContentNumeric);
-        // var_dump($passwordArray);
         foreach ($stringContentNumericArray as $caractereNumeric) {
             if ($letraOfPassoword == $caractereNumeric) {
                 $countCaractereClass += 1;
-                break;
-            } else {
+                break 2;
             }
         }
     }

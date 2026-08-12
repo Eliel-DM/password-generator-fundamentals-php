@@ -4,5 +4,5 @@
 
 include __DIR__ . "/password.php";
 
-$counter = checkCaractere("oi1");
+$counter = checkCaractere("oi21");
 echo $counter;
