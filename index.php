@@ -15,6 +15,7 @@ while ($validadorDeEntrada != 5) {
 
     echo "\nOlá, seja bem vindo ao Password-Generator-VPRO!\n";
     echo "1 - Gerador de Senha.\n";
+    echo "2 - Validador de Senha.\n";
     echo "5 - SAIR.\n";
     $validadorDeEntrada = fgets(STDIN);
     switch ($validadorDeEntrada) {
@@ -52,11 +53,18 @@ while ($validadorDeEntrada != 5) {
             echo $password . "\n";
             sleep(3);
             break;
+        case 2:
+            echo "Insira a senha que deseja validar: ";
+            $password = fgets(STDIN);
+            $resultValidacaoSenha = passwordValidator($password);
+            echo $resultValidacaoSenha;
+            sleep(3);
+            break;
         case 5:
-            echo "Saindo do gerador de senhas...";
+            echo "Saindo do gerador de senhas...\n";
             break;
         default:
-            echo  "A opção selecionada não é válida!";
+            echo  "A opção selecionada não é válida!\n";
             break;
     }
 }

@@ -38,13 +38,14 @@ function passwordValidator(string $password): string {
     $sizePassword = strlen($password);
 
     if ($sizePassword >= 14 && $qualityPassoword >= 3) {
-        return "A senha informada é uma senha de forte";
+        return "A senha informada é uma senha de forte!\n";
     } elseif (($sizePassword >= 8 && $sizePassword < 13) && $qualityPassoword >= 3) {
-        return "A senha informada é uma senha  média!";
+        return "A senha informada é uma senha  média!\n";
     } else {
-        return "A senha informada é uma senha Fraca!";
+        return "A senha informada é uma senha Fraca!\n";
     }
 }
+
 /*
     ---------------------Função para validar quais tipos de caracteres presentes na senha---------------------
     Não sei se foi a melhor maneira de implementar, mas foi a forma que veio na mente, validar depois.
